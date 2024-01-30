@@ -1,5 +1,5 @@
-addpath('../src/')
-addpath('../src/utils/')
+addpath('robust-tube-mpc/src/')
+addpath('robust-tube-mpc/src/utils/')
 
 % fix random seed
 rng(0);
@@ -31,7 +31,7 @@ mpc = TubeModelPredictiveControl(disturbance_system, Xc, Uc, N_horizon);
 
 % The robust MPC guidances the path inside the robust MPI-set so that the path will reach the robust MPI-set in N_horizon. 
 x = [-7; -2];
-savedir_name = './results/';
+savedir_name = 'robust-tube-mpc/results/';
 mkdir(savedir_name);
 
 for i = 1:15

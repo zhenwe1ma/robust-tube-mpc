@@ -28,7 +28,7 @@ classdef LinearSystem < handle
             x_new = obj.A * x + obj.B * u;
         end
 
-        function Xmpi = compute_MPIset(obj, Xc, Uc) 
+        function Xmpi = compute_MPIset(obj, Xc, Uc) %% Maximal Positively Invariant 
             [F, G, nc] = convert_Poly2Mat(Xc, Uc);
             Fpi = @(i) (F+G*obj.K)*obj.Ak^i;
             Xpi = @(i) Polyhedron(Fpi(i), ones(size(Fpi(i), 1), 1));
